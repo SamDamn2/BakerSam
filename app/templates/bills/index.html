@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Factura</title>
+</head>
+<body>
+    <h1>Lista de Facturas</h1>
+
+    <div class="invoice-list">
+        {% for bill in data %}
+            <div class="invoice-item">
+                <h2>Factura ID: {{ bill.id }}</h2>
+                <p><strong>Pedido:</strong> 
+                    {% for order in orders %}
+                        {% if order.id == bill.orders %}
+                            {{ order.id }}
+                        {% endif %}
+                    {% endfor %}
+                </p>
+                <p><strong>Producto:</strong> 
+                    {% for product in products %}
+                        {% if product.id == bill.products %}
+                            {{ product.nombrepro }}
+                        {% endif %}
+                    {% endfor %}
+                </p>
+                <p><strong>Nombre:</strong> {{ bill.nombreprodu }}</p>
+                <p><strong>Cantidad:</strong> {{ bill.cantidad }}</p>
+                <p><strong>Precio Unitario:</strong> {{ bill.preciouni }}</p>
+                <p><strong>Subtotal:</strong> {{ bill.subtotal }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <br>
+    <a href="{{ url_for('bill.add') }}">Agregar Factura</a>
+    <a href="{{ url_for('order.index') }}">Ir a Pedidos</a>
+    <a href="{{ url_for('product.index') }}">Ir a Productos</a>
+</body>
+</html>
