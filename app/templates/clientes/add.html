@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleadd.css') }}">
+    <title>Agregar cliente</title>
+</head>
+<body>
+    <h1>Agregar cliente</h1>
+    <form action="{{ url_for('clientes.add') }}" method="post">
+        <label for="nombrecte">Nombre:</label>
+        <input type="text" id="nombrecte" name="nombrecte" required>
+        <label for="direccioncte">Direccion:</label>
+        <input type="text" id="direccioncte" name="direccioncte" required>
+        <label for="telefonocte">Telefono:</label>
+        <input type="text" id="telefonocte" name="telefonocte" required>
+        <button type="submit">Agregar cliente</button>
+    </form>
+</body>
+</html>

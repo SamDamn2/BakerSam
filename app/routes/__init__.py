@@ -1,3 +1,5 @@
-from app.models.product import Product
-from app.models.order import Order
-from app.models.bill import Bill
+from flask import Blueprint
+
+bp = Blueprint('main', __name__)
+
+from app.routes import carritoRoutes, facturaRoutes, productoRoutes, clienteRoutes

@@ -1,0 +1,25 @@
+Nacionalidad<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Editar Producto</title>
+</head>
+<body>
+    <h1>Editar producto</h1>
+    <form action="{{ url_for('producto.edit', id=producto.idproducto) }}" method="post">
+
+        <label for="nombrepdo">Nombre producto:</label>
+        <input type="text" id="nombrepdo" name="nombrepdo" value="{{ producto.nombrepdo }}" required>
+        <label for="descripcionpdo">Descripcion:</label>
+        <input type="text" id="descripcionpdo" name="descripcionpdo" value="{{ producto.descripcionpdo }}" required>
+        <label for="preciopdo">Precio:</label>
+        <input type="text" id="preciopdo" name="preciopdo" value="{{ producto.preciopdo }}" required>
+        <label for="stockpdo">Stock:</label>
+        <input type="text" id="stockpdo" name="stockpdo" value="{{ producto.stockpdo }}" required>
+        <button type="submit">Actualizar producto</button>
+    </form>
+</body>
+</html>

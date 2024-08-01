@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleindex.css') }}">
+    <title>Libros</title>
+</head>
+<body>
+    <h1>Factura Número {{ factura.idfactura }}</h1>
+    Fecha: {{ factura.fechafta }} <br><br>
+    ID Cliente:  {{ factura.idcliente }} 
+    <table>
+        <tr>
+            <th>ID Detalle</th>
+            <th>ID Factura</th>
+            <th>ID Producto</th>
+            <th>cantidad</th>
+        </tr>
+        {% for detalle in data %}
+            <tr>
+                <td>{{ detalle.iddetalle}}</td>
+                <td>{{ detalle.idfactura }}</td>
+                <td>{{ detalle.idproducto }}</td>
+                <td>{{ detalle.cantidad }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

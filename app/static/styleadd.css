@@ -1,0 +1,61 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2a2a2a; /* Dark background */
+    color: #e0e0e0; /* Light gray text */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+h1 {
+    color: #d1a6e1; /* Light purple */
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* Form Styles */
+form {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #333; /* Darker background for the form */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for better visibility */
+}
+
+label {
+    display: block;
+    color: #e0e0e0; /* Light gray text */
+    margin: 10px 0 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #666;
+    border-radius: 4px;
+    background-color: #444; /* Darker background for input fields */
+    color: #fff; /* White text */
+    margin-bottom: 15px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #6a1b9a; /* Purple button background */
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #4a0072; /* Darker purple on hover */
+}
