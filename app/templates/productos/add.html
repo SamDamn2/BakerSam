@@ -18,6 +18,20 @@
         <input type="text" id="preciopdo" name="preciopdo" required>
         <label for="stockpdo">Stock:</label>
         <input type="text" id="stockpdo" name="stockpdo" required>
+        <label for="tipocga">Categoría:</label>
+        <label for="tipocga">Categoría:</label>
+        <select id="tipocga" name="tipocga" required>
+            {% for categoria in categorias %}
+                <option value="{{ categoria.idcategoria }}">{{ categoria.tipocga }}</option>
+            {% endfor %}
+        </select>
+        <label for="nombrepvr">Proveedor:</label>
+        <select id="nombrepvr" name="nombrepvr" required>
+            {% for proveedor in proveedores %}
+                <option value="{{ proveedor.idproveedor }}">{{ proveedor.nombrepvr }}</option>
+            {% endfor %}
+        </select>
+
         <button type="submit">Agregar producto</button>
     </form>
 </body>

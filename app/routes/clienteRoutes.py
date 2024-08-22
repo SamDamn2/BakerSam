@@ -1,15 +1,18 @@
 from flask import Blueprint, render_template, request, redirect, url_for
+from flask_login import login_required
 from app.models.cliente import Cliente
 from app import db
 
 bp = Blueprint('clientes', __name__)
 
 @bp.route('/clientes')
+@login_required
 def index():
     data = Cliente.query.all()
     return render_template('clientes/index.html', data=data)
 
 @bp.route('/clientes/add', methods=['GET', 'POST'])
+@login_required
 def add():
     if request.method == 'POST':
         nombrecte = request.form['nombrecte']
@@ -25,6 +28,7 @@ def add():
     return render_template('clientes/add.html')
 
 @bp.route('/clientes/edit/<int:id>', methods=['GET', 'POST'])
+@login_required
 def edit(id):
     cliente = Cliente.query.get_or_404(id)
 
@@ -38,6 +42,7 @@ def edit(id):
     return render_template('clientes/edit.html', cliente=cliente)
 
 @bp.route('/clientes/delete/<int:id>')
+@login_required
 def delete(id):
     cliente = Cliente.query.get_or_404(id)
     db.session.delete(cliente)

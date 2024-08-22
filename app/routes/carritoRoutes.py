@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask_login import login_required
 from app.models.producto import Producto
 from app.models.carrito import Carrito
 from app.models.factura import Factura
@@ -9,16 +10,19 @@ bp = Blueprint('carrito', __name__)
 carrito_compras = Carrito()
 
 @bp.route('/ListarCarrito')
+@login_required
 def listar():
     items = carrito_compras.getItems()
     return render_template('productos/list.html', items=items)
 
 @bp.route('/ListarProductos')
+@login_required
 def index():
     producto = carrito_compras
     return render_template('index.html', producto=producto)
 
 @bp.route('/agregar/<int:id>', methods=['POST'])
+@login_required
 def agregar_al_carrito(id):
     cantidad = int(request.form['cantidad'])
     carrito_compras.agregar_producto(id, cantidad)
@@ -26,17 +30,20 @@ def agregar_al_carrito(id):
     #return "Entra a agregar corrito"
 
 @bp.route('/eliminar/<int:id>', methods=['POST'])
+@login_required
 def eliminar_del_carrito(id):
     carrito_compras.eliminar_producto(id)
     return redirect(url_for('carrito.listar'))
 
 @bp.route('/realizar_compra')
+@login_required
 def realizar_compra():
     total = carrito_compras.calcular_total()
     return render_template('carritos/realizar_compra.html', total=total)
 
 
 @bp.route('/generar_factura', methods=['POST'])
+@login_required
 def generar_factura():
     total = carrito_compras.calcular_total()
     
@@ -65,6 +72,7 @@ def generar_factura():
     return render_template('carritos/factura.html', total=total)
 
 @bp.route('/itemscarrito', methods=['GET', 'POST'])
+@login_required
 def tCarrito():
     a = carrito_compras.tamañoD()
     print("Entra a carrito rutas", a)

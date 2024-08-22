@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleindex.css') }}">
+    <title>Categoria</title>
+</head>
+<body>
+
+    <h1>Lista de Categorias</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Categoria</th>
+            <th>Acciones</th>
+        </tr>
+        {% for categoria in dataC %}
+            <tr>
+                <td>{{ categoria.idcategoria }}</td>
+                <td>{{ categoria.tipocga }}</td>
+                <td>
+                    <a href="{{ url_for('categoria.edit', id=categoria.idcategoria) }}">Editar</a>
+                    <a href="{{ url_for('categoria.delete', id=categoria.idcategoria) }}">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('categoria.add') }}">Agregar categoria</a>
+    <a href="{{ url_for('producto.index') }}">Ir a productos</a>
+    <a href="{{ url_for('factura.index') }}">Ir a facturas</a>
+    <a href="{{ url_for('clientes.index') }}">Ir a clientes</a>
+</body>
+</html>

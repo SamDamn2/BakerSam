@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleadd.css') }}">
+    <title>Agregar proveedor</title>
+</head>
+<body>
+    <h1>Agregar proveedor</h1>
+    <form action="{{ url_for('proveedor.add') }}" method="post">
+        <label for="nombrepvr">Nombre:</label>
+        <input type="text" id="nombrepvr" name="nombrepvr" required>
+        <label for="cedulapvr">Cedula:</label>
+        <input type="text" id="cedulapvr" name="cedulapvr" required>
+        <label for="telefonopvr">Telefono:</label>
+        <input type="text" id="telefonopvr" name="telefonopvr" required>
+        <button type="submit">Agregar proveedor</button>
+    </form>
+</body>
+</html>

@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, jsonify
+from flask_login import login_required
 from app.models.factura import Factura
 from app.models.detallefactura import Detallefactura
 from app.routes.carritoRoutes import carrito_compras
@@ -7,12 +8,14 @@ from app import db
 bp = Blueprint('factura', __name__)
 
 @bp.route('/factura')
+@login_required
 def index():
     data = Factura.query.all()
     return render_template('facturas/index.html', data=data)
  
 
 @bp.route('/addfactura', methods=['GET', 'POST'])
+@login_required
 def add():
     factura = Factura(fechafta="Hoy", idcliente=1)
     db.session.add(factura)
@@ -21,6 +24,7 @@ def add():
     return redirect(url_for('factura.addDetalle',id=factura.idfactura))
 
 @bp.route('/adddetalle/<int:id>', methods=['GET', 'POST'])
+@login_required
 def addDetalle(id):
     for item in carrito_compras.getItems():
         idproducto = item["producto"].idproducto
@@ -34,6 +38,7 @@ def addDetalle(id):
 
 
 @bp.route('/factura/<int:id>', methods=['GET', 'POST'])
+@login_required
 def detalle(id):
     factura = Factura.query.get_or_404(id)
     detalle = factura.productos  # Cambiar `factura.producto` a `factura.productos`
@@ -41,6 +46,7 @@ def detalle(id):
 
 
 @bp.route('/delete/<int:id>')
+@login_required
 def delete(id):
     factura = Factura.query.get_or_404(id)
     

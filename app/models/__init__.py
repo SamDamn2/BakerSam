@@ -6,3 +6,4 @@ from app.models.carrito import Carrito
 from app.models.categoria import Categoria
 from app.models.proveedor import Proveedor
 from app.models.metodopago import Metodopago
+from app.models.personal import Personal

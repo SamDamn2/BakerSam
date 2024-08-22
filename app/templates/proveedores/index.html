@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleindex.css') }}">
+    <title>Proveedores</title>
+</head>
+<body>
+    <h1>Proveedores</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Cedula</th>
+            <th>Teléfono</th>
+            <th>Acciones</th>
+        </tr>
+        {% for proveedor in dataP %}
+            <tr>
+                <td>{{ proveedor.idproveedor }}</td>
+                <td>{{ proveedor.nombrepvr }}</td>
+                <td>{{ proveedor.cedulapvr }}</td>
+                <td>{{ proveedor.telefonopvr }}</td>
+                <td>
+                    <a href="{{ url_for('proveedor.edit', id=proveedor.idproveedor) }}">Editar</a>
+                    <a href="{{ url_for('proveedor.delete', id=proveedor.idproveedor) }}">Eliminar</a>                
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('proveedor.add') }}">Agregar proveedor</a>
+</body>
+</html>

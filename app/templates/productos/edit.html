@@ -1,4 +1,4 @@
-Nacionalidad<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,6 +19,22 @@ Nacionalidad<!DOCTYPE html>
         <input type="text" id="preciopdo" name="preciopdo" value="{{ producto.preciopdo }}" required>
         <label for="stockpdo">Stock:</label>
         <input type="text" id="stockpdo" name="stockpdo" value="{{ producto.stockpdo }}" required>
+        <label for="tipocga">Categoría:</label>
+        <select id="tipocga" name="tipocga" required>
+            {% for categoria in categorias %}
+                <option value="{{ categoria.idcategoria }}" {% if producto.idcategoria == categoria.idcategoria %}selected{% endif %}>
+                    {{ categoria.tipocga }}
+                </option>
+            {% endfor %}
+        </select>
+        <label for="nombrepvr">Proveedor</label>
+        <select id="nombrepvr" name="nombrepvr" required>
+            {% for proveedor in data %}
+                <option value="{{ proveedor.idproveedor }}"{% if producto.ideproveedor == proveedor.idproveedor %}selected{% endif %}>
+                    {{ proveedor.nombrepvr }}
+                </option>
+            {% endfor %}
+        </select>
         <button type="submit">Actualizar producto</button>
     </form>
 </body>

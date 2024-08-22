@@ -16,6 +16,8 @@
         <tr>
             <th>ID</th>
             <th>Producto</th>
+            <th>Categoria</th>
+            <th>Proveedor</th>
             <th>Precio</th>
             <th>Número de Unidades</th>
             <th>Acciones</th>
@@ -24,6 +26,8 @@
             <tr>
                 <td>{{ producto.idproducto }}</td>
                 <td>{{ producto.nombrepdo }}</td>
+                <td>{{ producto.categoria.tipocga }}</td>
+                <td>{{ producto.proveedor.nombrepvr }}</td>
                 <td>{{ producto.preciopdo }}</td>
                 <td>
                     <form action="{{ url_for('carrito.agregar_al_carrito', id = producto.idproducto) }}" method="post">
@@ -39,7 +43,9 @@
         {% endfor %}
     </table>
     <a href="{{ url_for('producto.add') }}">Agregar producto</a>
+    <a href="{{ url_for('categoria.index') }}">Ir a categoria</a>
     <a href="{{ url_for('factura.index') }}">Ir a facturas</a>
     <a href="{{ url_for('clientes.index') }}">Ir a clientes</a>
+    <a href="{{ url_for('proveedor.index') }}">Ir a proveedores</a>
 </body>
 </html>
