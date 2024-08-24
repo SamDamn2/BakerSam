@@ -49,18 +49,29 @@ html {
 }
 
 .customer-support {
-	display: flex;
-	align-items: center;
-	gap: 2rem;
+    display: flex;
+    align-items: center; /* Alinea verticalmente la imagen y el texto */
+    gap: 1rem; /* Espacio entre la imagen y el contenido de soporte */
 }
 
-.customer-support i {
-	font-size: 3.3rem;
+.customer-support img {
+    width: 3.3rem; /* Ajusta el tamaño de la imagen */
+    height: 3.3rem; /* Ajusta el tamaño de la imagen */
 }
 
 .content-customer-support {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-customer-support .text {
+    font-size: 1.2rem; /* Ajusta el tamaño del texto "Soporte al cliente" */
+    font-weight: bold; /* O puedes ajustar el estilo que prefieras */
+}
+
+.content-customer-support .number {
+    font-size: 1rem; /* Ajusta el tamaño del número de teléfono */
+    color: #666; /* Color opcional para el número de teléfono */
 }
 
 .container-logo {
@@ -92,44 +103,51 @@ html {
 }
 
 .container-user {
-	display: flex;
-	align-items: center; /* Alinea verticalmente el icono con el número */
-	gap: 1rem;
-	position: relative; /* Para posicionar el número sobre el icono */
-	cursor: pointer;
-}
-
-.container-user .cart-count {
-	position: absolute;
-	top: -10px; /* Ajusta según sea necesario */
-	right: -10px; /* Ajusta según sea necesario */
-	background-color: red; /* Cambia el color según tu preferencia */
-	color: #fff;
-	border-radius: 50%;
-	width: 20px;
-	height: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 1.2rem;
-	font-weight: bold;
+    display: flex;
+    align-items: center; /* Alinea verticalmente el ícono de usuario con el carrito */
+    gap: 1rem;
+    position: relative; /* Para posicionar el número sobre el carrito */
+    cursor: pointer;
 }
 
 .container-user .fa-user {
-	font-size: 3rem;
-	color: var(--primary-color);
-	padding-right: 2.5rem;
-	border-right: 1px solid #e2e2e2;
+    font-size: 3rem; /* Ajusta el tamaño del ícono de usuario según sea necesario */
+    color: var(--primary-color);
+    padding-right: 1rem; /* Ajusta el espaciado entre el ícono de usuario y el carrito */
+    border-right: 1px solid #e2e2e2;
 }
 
-.container-user .fa-basket-shopping {
-	font-size: 3rem;
-	color: var(--primary-color);
+.container-user .divider {
+    height: 3rem; /* Altura de la línea divisoria */
+    border-left: 1px solid #e2e2e2; /* Estilo de la línea divisoria */
+    margin: 0 1rem; /* Espacio alrededor de la línea divisoria */
 }
 
-.content-shopping-cart {
-	display: flex;
-	flex-direction: column;
+.container-user a {
+    position: relative; /* Necesario para posicionar el número sobre el carrito */
+    display: flex;
+    align-items: center; /* Alinea verticalmente el ícono del carrito con el número */
+}
+
+.container-user img {
+    width: 3rem; /* Ajusta el tamaño del ícono del carrito según sea necesario */
+    height: 3rem; /* Ajusta el tamaño del ícono del carrito según sea necesario */
+}
+
+.container-user .cart-count {
+    position: absolute;
+    top: -10px; /* Ajusta según sea necesario */
+    right: -10px; /* Ajusta según sea necesario */
+    background-color: red; /* Cambia el color según tu preferencia */
+    color: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 /* ************* NAVBAR ************* */
@@ -222,11 +240,13 @@ html {
 	align-items: center;
 	justify-content: center;
 	height: 100%;
-	padding: 1rem;
+	padding: 0 1rem; /* Ajusta el padding para centrar el ícono */
+	cursor: pointer;
 }
 
-.btn-search i {
-	font-size: 2rem;
+.btn-search img {
+	width: 2rem; /* Ajusta el tamaño del ícono */
+	height: auto;
 	color: #fff;
 }
 
@@ -248,14 +268,14 @@ html {
 }
 
 .content-banner p {
-	color: var(--primary-color);
-	font-size: 1.2rem;
+	color: #fff;
+	font-size: 1.6rem;
 	margin-bottom: 1rem;
 	font-weight: 500;
 }
 
 .content-banner h2 {
-	color: #fff;
+	color: var(--primary-color);
 	font-size: 3.5rem;
 	font-weight: 500;
 	line-height: 1.2;
@@ -272,6 +292,30 @@ html {
 	border-radius: 3rem;
 }
 
+.container.our-services {
+    padding: 2rem;
+    background-color: #fafafa; /* Color de fondo claro para resaltar el contenido */
+    text-align: center; /* Centra el contenido */
+    border-radius: 10px; /* Bordes redondeados para un look más suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
+    margin: 2rem auto; /* Margen para separación superior e inferior */
+    max-width: 1200px; /* Limita el ancho máximo para mantener la lectura fácil */
+}
+
+.heading-1 {
+    font-size: 2.5rem; /* Tamaño del título más grande */
+    color: #333; /* Color oscuro para el título */
+    margin-bottom: 1.5rem; /* Espacio debajo del título */
+    font-weight: 700; /* Negrita para destacar el título */
+}
+
+.our-services p {
+    font-size: 2.0rem; /* Tamaño del texto para mejor legibilidad */
+    color: #555; /* Color de texto más suave */
+    line-height: 1.6; /* Mayor altura de línea para mejor legibilidad */
+    margin: 0; /* Elimina márgenes por defecto */
+}
+
 /* ********************************** */
 /*            MAIN CONTENT            */
 /* ********************************** */
@@ -284,7 +328,7 @@ html {
 /* ********************************** */
 .container-features {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 	gap: 3rem;
 	padding: 3rem 0;
 }
@@ -298,6 +342,11 @@ html {
 	background-color: #fff;
 	border-radius: 1rem;
 	padding: 1.5rem 0;
+}
+
+.card-feature img {
+	width: 3rem; /* Ajusta el tamaño del ícono */
+	height: auto;
 }
 
 .card-feature i {
@@ -347,30 +396,31 @@ html {
 	justify-content: center;
 	border-radius: 2rem;
 	gap: 2rem;
-}
-
-.category-moca {
-	background-image: linear-gradient(#00000080, #00000080),
-		url('img/moca-category.jpg');
-	background-size: cover;
-	background-position: bottom;
-	background-repeat: no-repeat;
-}
-
-.category-capuchino {
-	background-image: linear-gradient(#00000080, #00000080),
-		url('img/capuchino-category.jpg');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	cursor: pointer;
 }
 
-.category-expreso {
+.card-category:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.category-panes {
 	background-image: linear-gradient(#00000080, #00000080),
-		url('img/expreso-category.jpg');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+		url('img/panes.jpg');
+}
+
+.category-comida {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('img/comida.jpg');
+}
+
+.category-cafe {
+	background-image: linear-gradient(#00000080, #00000080),
+		url('img/cafe.jpg');
 }
 
 .card-category p {
@@ -448,78 +498,36 @@ html {
 .card-product {
 	background-color: #fff;
 	padding: 2rem 3rem;
-	border-radius: 0.5rem;
+	border-radius: 1rem;
 	cursor: pointer;
-	box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-product:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .container-img {
 	position: relative;
+	overflow: hidden;
+	border-radius: 0.5rem;
 }
 
 .container-img img {
 	width: 100%;
+	border-radius: 0.5rem;
+	transition: transform 0.3s ease;
 }
 
-.container-img .discount {
-	position: absolute;
-	left: 0;
-	background-color: var(--primary-color);
-	color: #fff;
-	padding: 2px 1.2rem;
-	border-radius: 1rem;
-	font-size: 1.2rem;
-}
-
-.card-product:hover .discount {
-	background-color: #000;
-}
-
-.button-group {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-
-	position: absolute;
-	top: 0;
-	right: -3rem;
-	z-index: -1;
-	transition: all 0.4s ease;
-}
-
-.button-group span {
-	border: 1px solid var(--primary-color);
-	padding: 0.8rem;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 50%;
-	cursor: pointer;
-	transition: all 0.4s ease;
-}
-
-.button-group span:hover {
-	background-color: var(--primary-color);
-}
-
-.button-group span i {
-	font-size: 1.5rem;
-	color: var(--primary-color);
-}
-
-.button-group span:hover i {
-	color: #fff;
-}
-
-.card-product:hover .button-group {
-	z-index: 0;
-	right: -1rem;
+.card-product:hover .container-img img {
+	transform: scale(1.05);
 }
 
 .content-card-product {
 	display: grid;
-	justify-items: center;
+	justify-items: left;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: repeat(4, min-content);
 	row-gap: 1rem;
@@ -528,11 +536,6 @@ html {
 .stars {
 	grid-row: 1/2;
 	grid-column: 1/-1;
-}
-
-.stars i {
-	font-size: 1.3rem;
-	color: var(--primary-color);
 }
 
 .content-card-product h3 {
@@ -550,30 +553,27 @@ html {
 }
 
 .add-cart {
-	justify-self: start;
 	border: 2px solid var(--primary-color);
-	padding: 1rem;
+	padding: 0.8rem;
 	border-radius: 50%;
-	cursor: pointer;
-	transition: all 0.4s ease;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	transition: all 0.3s ease;
+	margin-left: 0px;
 }
 
 .add-cart:hover {
 	background-color: var(--primary-color);
+	transform: scale(1.1);
 }
 
-.add-cart i {
-	font-size: 1.5rem;
-	color: var(--primary-color);
+.add-cart img {
+	width: 1.5rem;
+	transition: all 0.3s ease;
 }
 
-.add-cart:hover i {
-	color: #fff;
+.add-cart:hover img {
+	filter: brightness(0) invert(1);
 }
+
 
 .content-card-product .price {
 	justify-self: end;
@@ -606,12 +606,20 @@ html {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	border-radius: 0.5rem;
+}
+
+.gallery img:hover {
+	transform: scale(1.05);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .gallery-img-3 {
 	grid-column: 2/4;
 	grid-row: 1/3;
 }
+
 
 /* ********************************** */
 /*              SPECIALS              */
@@ -810,29 +818,18 @@ html {
 	justify-content: center;
 }
 
-.social-icons span i {
-	color: #fff;
-	font-size: 1.2rem;
+.social-icons span img {
+	width: 1.8rem; /* Ajusta el tamaño del ícono SVG */
+	height: 1.8rem;
 }
 
 .facebook {
 	background-color: #3b5998;
 }
 
-.twitter {
-	background-color: #00acee;
-}
-
-.youtube {
-	background-color: #c4302b;
-}
-
-.pinterest {
-	background-color: #c8232c;
-}
-
 .instagram {
 	background: linear-gradient(
+		45deg,
 		#405de6,
 		#833ab4,
 		#c13584,
@@ -842,6 +839,7 @@ html {
 		#fcaf45
 	);
 }
+
 
 .content p {
 	font-size: 1.4rem;

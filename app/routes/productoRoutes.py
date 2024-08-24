@@ -25,6 +25,14 @@ def cafeteria():
     dataP = Proveedor.query.all()
     return render_template('menu/cafeteria.html', data=data, dataC=dataC, dataP=dataP, t=carrito_compras.tamañoD())
 
+@bp.route('/vista')
+@login_required
+def vista():
+    data = Producto.query.all()
+    dataC = Categoria.query.all()
+    dataP = Proveedor.query.all()
+    return render_template('menu/base.html', data=data, dataC=dataC, dataP=dataP, t=carrito_compras.tamañoD())
+
 @bp.route('/Producto/add', methods=['GET', 'POST'])
 @login_required
 def add():

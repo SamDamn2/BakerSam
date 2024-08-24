@@ -17,7 +17,6 @@ def index():
 @bp.route('/addfactura', methods=['GET', 'POST'])
 @login_required
 def add():
-    factura = Factura(fechafta="Hoy", idcliente=1)
     db.session.add(factura)
     db.session.commit()
     print("factura id  ", factura.idfactura)

@@ -8,6 +8,7 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<title>BakerSams</title>
+		<link rel="icon" href="{{ url_for('static', filename='img/ico.ico') }}" type="image/x-icon">
 		<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
 	</head>
 	<body>
@@ -15,7 +16,7 @@
 			<div class="container-hero">
 				<div class="container hero">
 					<div class="customer-support">
-						<i class="fa-solid fa-headset"></i>
+						<img src="{{ url_for('static', filename='img/headp.svg') }}" alt="Auricular Icono">
 						<div class="content-customer-support">
 							<span class="text">Soporte al cliente</span>
 							<span class="number">321-409-8166</span>
@@ -28,10 +29,11 @@
 					</div>
 
 					<div class="container-user">
-						<i class="fa fa-user"></i>
+						<img src="{{ url_for('static', filename='img/user.svg') }}" alt="Usuario Icono">
+						<div class="divider"></div>
 						<a href="/ListarCarrito">
-							<i class="fa fa-basket-shopping"></i>
-							<span class="cart-count">0</span>
+							<img src="{{ url_for('static', filename='img/car.svg') }}" alt="Carrito Icono">
+							<span class="cart-count">{{t}}</span>
 						</a>
 					</div>
 					
@@ -51,7 +53,7 @@
 					<form class="search-form">
 						<input type="search" placeholder="Buscar..." />
 						<button class="btn-search">
-							<i class="fa-solid fa-magnifying-glass"></i>
+							<img src="{{ url_for('static', filename='img/lupa.svg') }}" alt="Lupa Icono">
 						</button>
 					</form>
 				</nav>
@@ -69,31 +71,24 @@
 		<main class="main-content">
 			<section class="container container-features">
 				<div class="card-feature">
-					<i class="fa-solid fa-plane-up"></i>
+					<img src="{{ url_for('static', filename='img/deli.svg') }}" alt="Carro Icono">
 					<div class="feature-content">
-						<span>Envío gratuito a nivel mundial</span>
-						<p>En pedido superior a $150</p>
+						<span>Envíos a nivel municipal</span>
+						<p>Con un costo de $3.000</p>
 					</div>
 				</div>
 				<div class="card-feature">
-					<i class="fa-solid fa-wallet"></i>
+					<img src="{{ url_for('static', filename='img/bille.svg') }}" alt="Billetera Icono">
 					<div class="feature-content">
-						<span>Contrareembolso</span>
-						<p>100% garantía de devolución de dinero</p>
+						<span>Metodos de pago</span>
+						<p>Nequi, tarjeta, efectivo y transferencia</p>
 					</div>
 				</div>
 				<div class="card-feature">
-					<i class="fa-solid fa-gift"></i>
-					<div class="feature-content">
-						<span>Tarjeta regalo especial</span>
-						<p>Ofrece bonos especiales con regalo</p>
-					</div>
-				</div>
-				<div class="card-feature">
-					<i class="fa-solid fa-headset"></i>
+					<img src="{{ url_for('static', filename='img/audi.svg') }}" alt="Audifonos Icono">
 					<div class="feature-content">
 						<span>Servicio al cliente 24/7</span>
-						<p>LLámenos 24/7 al 123-456-7890</p>
+						<p>LLámenos al 321-409-8166</p>
 					</div>
 				</div>
 			</section>
@@ -101,19 +96,52 @@
 			<section class="container top-categories">
 				<h1 class="heading-1">Mejores Categorías</h1>
 				<div class="container-categories">
-					<div class="card-category category-moca">
-						<p>Café moca</p>
+					<div class="card-category category-panes">
+						<p>Panaderia</p>
 						<span>Ver más</span>
 					</div>
-					<div class="card-category category-expreso">
-						<p>Expreso Americano</p>
+					<div class="card-category category-comida">
+						<p>Restaurante</p>
 						<span>Ver más</span>
 					</div>
-					<div class="card-category category-capuchino">
-						<p>Capuchino</p>
+					<div class="card-category category-cafe">
+						<p>Cafeteria</p>
 						<span>Ver más</span>
 					</div>
 				</div>
+			</section>
+
+			<section class="container our-services">
+				<h1 class="heading-1">Nuestros Servicios</h1>
+				<p>
+					En nuestra panadería encontrarás una variedad de productos frescos, incluyendo panes y pasteles. <br>
+					Nuestro restaurante ofrece opciones de desayuno y almuerzo, perfectas para reuniones y eventos. <br>
+					Y en nuestra cafetería, podrás disfrutar de una selección de bebidas y bocadillos en un ambiente acogedor.
+				</p>
+			</section>
+
+			<section class="gallery">
+				<img
+					src="{{ url_for('static', filename='img/pan.jpg')}}"
+					alt="Panes"
+					class="gallery-img-1"
+				/><img
+					src="{{ url_for('static', filename='img/pasta.jpg')}}"
+					alt="Pasta"
+					class="gallery-img-2"
+				/><img
+					src="{{ url_for('static', filename='img/pasteles.jpg')}}"
+					alt="Pasteles"
+					class="gallery-img-3"
+				/><img
+					src="{{ url_for('static', filename='img/caffe.jpg')}}"
+					alt="Cafe"
+					class="gallery-img-4"
+				/><img
+					src="{{ url_for('static', filename='img/huevo.jpg')}}"
+					alt="Huevos"
+					class="gallery-img-5"
+				/>
 			</section>
 
 			<section class="container top-products">
@@ -121,27 +149,14 @@
 
 				<div class="container-options">
 					<span class="active">Destacados</span>
-					<span>Más recientes</span>
-					<span>Mejores Vendidos</span>
 				</div>
 
 				<div class="container-products">
 					<!-- Producto 1 -->
+					{% for producto in data %}
 					<div class="card-product">
 						<div class="container-img">
 							<img src="{{ url_for('static', filename='img/cafe-irish.jpg') }}" alt="Cafe Irish" />
-							<span class="discount">-13%</span>
-							<div class="button-group">
-								<span>
-									<i class="fa-regular fa-eye"></i>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
-								</span>
-							</div>
 						</div>
 						<div class="content-card-product">
 							<div class="stars">
@@ -151,359 +166,22 @@
 								<i class="fa-solid fa-star"></i>
 								<i class="fa-regular fa-star"></i>
 							</div>
-							<h3>Cafe Irish</h3>
-							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
-							</span>
-							<p class="price">$4.60 <span>$5.30</span></p>
+							<h3>{{ producto.nombrepdo }}</h3>
+							<div class="can">
+								<form action="{{ url_for('carrito.agregar_al_carrito', id=producto.idproducto) }}" method="post" style="display:inline;">
+									<label for="cantidad-{{ producto.idproducto }}" style="display:block;">Cantidad:</label>
+									<input type="number" id="cantidad-{{ producto.idproducto }}" name="cantidad" value="1" min="1" style="width: 40px;">
+									<button type="submit" class="add-cart">
+										<img src="{{ url_for('static', filename='img/car.svg') }}" alt="Carrito icono" />
+									</button>
+								</form>
+								<p class="price">{{ producto.preciopdo }}</p>
+							</div>
 						</div>
 					</div>
-					<!-- Producto 2 -->
-					<div class="card-product">
-						<div class="container-img">
-							<img
-								src="{{ url_for('static', filename='img/cafe-ingles.jpg') }}"
-								alt="Cafe incafe-ingles.jpg"
-							/>
-							<span class="discount">-22%</span>
-							<div class="button-group">
-								<span>
-									<i class="fa-regular fa-eye"></i>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-							</div>
-							<h3>Cafe Inglés</h3>
-							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
-							</span>
-							<p class="price">$5.70 <span>$7.30</span></p>
-						</div>
-					</div>
-					<!--  -->
-					<div class="card-product">
-						<div class="container-img">
-							<img
-								src="{{ url_for('static', filename='img/cafe-australiano.jpg') }}"
-								alt="Cafe Australiano"
-							/>
-							<div class="button-group">
-								<span>
-									<i class="fa-regular fa-eye"></i>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-							</div>
-							<h3>Cafe Australiano</h3>
-							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
-							</span>
-							<p class="price">$3.20</p>
-						</div>
-					</div>
-					<!--  -->
-					<div class="card-product">
-						<div class="container-img">
-							<img src="{{ url_for('static', filename='img/cafe-helado.jpg') }}" alt="Cafe Helado" />
-							<div class="button-group">
-								<span>
-									<i class="fa-regular fa-eye"></i>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-							</div>
-							<h3>Cafe Helado</h3>
-							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
-							</span>
-							<p class="price">$5.60</p>
-						</div>
-					</div>
+					{% endfor %}
 				</div>
 			</section>
-
-			<section class="gallery">
-				<img
-					src="{{ url_for('static', filename='img/gallery1.jpg')}}"
-					alt="Gallery Img1"
-					class="gallery-img-1"
-				/><img
-					src="{{ url_for('static', filename='img/gallery2.jpg')}}"
-					alt="Gallery Img2"
-					class="gallery-img-2"
-				/><img
-					src="{{ url_for('static', filename='img/gallery3.jpg')}}"
-					alt="Gallery Img3"
-					class="gallery-img-3"
-				/><img
-					src="{{ url_for('static', filename='img/gallery4.jpg')}}"
-					alt="Gallery Img4"
-					class="gallery-img-4"
-				/><img
-					src="{{ url_for('static', filename='img/gallery5.jpg')}}"
-					alt="Gallery Img5"
-					class="gallery-img-5"
-				/>
-			</section>
-
-			<section class="container specials">
-				<h1 class="heading-1">Especiales</h1>
-
-				<div class="container-products">
-					<!-- Producto 1 -->
-					<div class="card-product">
-						<div class="container-img">
-							<img src="{{ url_for('static', filename='img/cafe-irish.jpg') }}" alt="Coca" />
-							<span class="discount">-13%</span>
-							<div class="button-group">
-								<span>
-									<i class="fa-regular fa-eye"></i>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-							</div>
-							<h3>Cafe Irish</h3>
-							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
-							</span>
-							<p class="price">$4.60 <span>$5.30</span></p>
-						</div>
-					</div>
-					<!-- Producto 2 -->
-					<div class="card-product">
-						<div class="container-img">
-							<img
-								src="{{ url_for('static', filename='img/cafe-ingles.jpg') }}"
-								alt="Cafe incafe-ingles.jpg"
-							/>
-							<span class="discount">-22%</span>
-							<div class="button-group">
-								<span>
-									<i class="fa-regular fa-eye"></i>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-							</div>
-							<h3>Cafe Inglés</h3>
-							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
-							</span>
-							<p class="price">$5.70 <span>$7.30</span></p>
-						</div>
-					</div>
-					<!--  -->
-					<div class="card-product">
-						<div class="container-img">
-							<img src="{{ url_for('static', filename='img/cafe-viena.jpg') }}" alt="Cafe Viena" />
-							<span class="discount">-30%</span>
-							<div class="button-group">
-								<span>
-									<i class="fa-regular fa-eye"></i>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-							</div>
-							<h3>Cafe Viena</h3>
-							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
-							</span>
-							<p class="price">$3.85 <span>$5.50</span></p>
-						</div>
-					</div>
-					<!--  -->
-					<div class="card-product">
-						<div class="container-img">
-							<img src="{{ url_for('static', filename='img/cafe-liqueurs.jpg') }}" alt="Cafe Liqueurs" />
-							<div class="button-group">
-								<span>
-									<i class="fa-regular fa-eye"></i>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-							</div>
-							<h3>Cafe Liqueurs</h3>
-							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
-							</span>
-							<p class="price">$5.60</p>
-						</div>
-					</div>
-				</div>
-			</section>
-
-			<section class="container blogs">
-				<h1 class="heading-1">Últimos Blogs</h1>
-
-				<div class="container-blogs">
-					<div class="card-blog">
-						<div class="container-img">
-							<img src="img/blog-1.jpg" alt="Imagen Blog 1" />
-							<div class="button-group-blog">
-								<span>
-									<i class="fa-solid fa-magnifying-glass"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-link"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-blog">
-							<h3>Lorem, ipsum dolor sit</h3>
-							<span>29 Noviembre 2022</span>
-							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing
-								elit. Iste, molestiae! Ratione et, dolore ipsum
-								quaerat iure illum reprehenderit non maxime amet dolor
-								voluptas facilis corporis, consequatur eius est sunt
-								suscipit?
-							</p>
-							<div class="btn-read-more">Leer más</div>
-						</div>
-					</div>
-					<div class="card-blog">
-						<div class="container-img">
-							<img src="img/blog-2.jpg" alt="Imagen Blog 2" />
-							<div class="button-group-blog">
-								<span>
-									<i class="fa-solid fa-magnifying-glass"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-link"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-blog">
-							<h3>Lorem, ipsum dolor sit</h3>
-							<span>29 Noviembre 2022</span>
-							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing
-								elit. Iste, molestiae! Ratione et, dolore ipsum
-								quaerat iure illum reprehenderit non maxime amet dolor
-								voluptas facilis corporis, consequatur eius est sunt
-								suscipit?
-							</p>
-							<div class="btn-read-more">Leer más</div>
-						</div>
-					</div>
-					<div class="card-blog">
-						<div class="container-img">
-							<img src="img/blog-3.jpg" alt="Imagen Blog 3" />
-							<div class="button-group-blog">
-								<span>
-									<i class="fa-solid fa-magnifying-glass"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-link"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-blog">
-							<h3>Lorem, ipsum dolor sit</h3>
-							<span>29 Noviembre 2022</span>
-							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing
-								elit. Iste, molestiae! Ratione et, dolore ipsum
-								quaerat iure illum reprehenderit non maxime amet dolor
-								voluptas facilis corporis, consequatur eius est sunt
-								suscipit?
-							</p>
-							<div class="btn-read-more">Leer más</div>
-						</div>
-					</div>
-				</div>
-			</section>
-		</main>
 
 		<footer class="footer">
 			<div class="container container-footer">
@@ -521,12 +199,12 @@
 						<div class="social-icons">
 							<a href="https://www.facebook.com/samuel.estradaavila?locale=es_LA" target="_blank">
 								<span class="facebook">
-									<i class="fa-brands fa-facebook-f"></i>
+									<img src="{{ url_for('static', filename='img/face.svg') }}" alt="Face Icono">
 								</span>
 							</a>
 							<a href="https://www.instagram.com/samuel_avila05/">
 								<span class="instagram">
-									<i class="fa-brands fa-instagram"></i>
+									<img src="{{ url_for('static', filename='img/insta.svg') }}" alt="Instagram Icono">
 								</span>
 							</a>							
 						</div>
@@ -578,10 +256,6 @@
 				</div>
 			</div>
 		</footer>
-
-		<script
-			src="https://kit.fontawesome.com/81581fb069.js"
-			crossorigin="anonymous"
-		></script>
+		</main>
 	</body>
 </html>
