@@ -7,6 +7,7 @@ class Producto(db.Model):
     descripcionpdo = db.Column(db.String(255), nullable=False)
     preciopdo = db.Column(db.BigInteger, nullable=False)
     stockpdo = db.Column(db.Integer, nullable=False)
+    imagenpdo = db.Column(db.String(255))
     
     detalle_facturas = db.relationship("Detallefactura", back_populates="producto")
 

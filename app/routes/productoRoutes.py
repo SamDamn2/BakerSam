@@ -1,11 +1,12 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from flask_login import login_required
+from werkzeug.utils import secure_filename
 from app.models.proveedor import Proveedor
 from app.models.producto import Producto
 from app.models.categoria import Categoria
 from app.routes.carritoRoutes import carrito_compras
-
 from app import db
+import os
 
 bp = Blueprint('producto', __name__)
 
@@ -43,8 +44,20 @@ def add():
         descripcionpdo = request.form['descripcionpdo']
         preciopdo = request.form['preciopdo']
         stockpdo = request.form['stockpdo']
+
+        imagenpdo = request.files['imagenpdo']
         
-        newProducto = Producto(nombrepdo=nombrepdo, idcategoria=idcategoria, idproveedor=idproveedor, descripcionpdo=descripcionpdo, preciopdo=preciopdo, stockpdo=stockpdo)
+
+        if imagenpdo:
+            filename = secure_filename(imagenpdo.filename)
+            imagen_path = os.path.join('static', 'img', filename)
+            imagenpdo.save(os.path.join(os.path.dirname(__file__), '..', imagen_path))
+            ruta_imagen = imagen_path
+
+        else:
+            ruta_imagen=None
+        
+        newProducto = Producto(nombrepdo=nombrepdo, idcategoria=idcategoria, idproveedor=idproveedor, descripcionpdo=descripcionpdo, preciopdo=preciopdo, stockpdo=stockpdo,  imagenpdo=imagenpdo.filename)
         db.session.add(newProducto)
         db.session.commit()
         
