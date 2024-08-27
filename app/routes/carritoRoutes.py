@@ -21,13 +21,12 @@ def index():
     producto = carrito_compras
     return render_template('index.html', producto=producto)
 
-@bp.route('/agregar/<int:id>', methods=['POST'])
+@bp.route('/agregar/<int:id>/<path:referer>', methods=['POST'])
 @login_required
-def agregar_al_carrito(id):
+def agregar_al_carrito(id, referer):
     cantidad = int(request.form['cantidad'])
     carrito_compras.agregar_producto(id, cantidad)
-    return redirect(url_for('menu.vista'))
-    #return "Entra a agregar corrito"
+    return redirect(referer)
 
 @bp.route('/eliminar/<int:id>', methods=['POST'])
 @login_required

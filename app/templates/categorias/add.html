@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styleadd.css') }}">
-    <title>Agregar Categoria</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesss.css') }}" />
+    <title>Agregar Categoría</title>
 </head>
 <body>
-    <h1>Agregar Categoria</h1>
+    <h1>Agregar Categoría</h1>
     <form action="{{ url_for('categoria.add') }}" method="post">
-        <label for="tipocga">Categoria:</label>
-        <input type="text" id="tipocga" name="tipocga" required>
-        <button type="submit">Agregar Categoria</button>
+        <label for="tipocga">Categoría:</label>
+        <select id="tipocga" name="tipocga" required>
+            <option value="Cafetería">Cafetería</option>
+            <option value="Restaurante">Restaurante</option>
+            <option value="Panadería">Panadería</option>
+        </select>
+        <button type="submit">Agregar Categoría</button>
     </form>
 </body>
 </html>

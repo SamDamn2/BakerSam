@@ -15,7 +15,9 @@ def index():
 def add():
     if request.method == 'POST':
         tipocga = request.form['tipocga']
-        
+        if tipocga not in ['Cafetería', 'Restaurante', 'Panadería']:
+            return redirect(url_for('categoria.index'))  # Redirige si no es una categoría válida
+
         newCate = Categoria(tipocga=tipocga)
         db.session.add(newCate)
         db.session.commit()

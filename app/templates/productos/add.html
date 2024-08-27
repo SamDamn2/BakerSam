@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styleadd.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesss.css') }}" />
     <title>Agregar Prodcuto</title>
 </head>
 <body>
@@ -18,13 +18,14 @@
         <input type="text" id="preciopdo" name="preciopdo" required>
         <label for="stockpdo">Stock:</label>
         <input type="text" id="stockpdo" name="stockpdo" required>
-        <label for="tipocga">Categoría:</label>
+
         <label for="tipocga">Categoría:</label>
         <select id="tipocga" name="tipocga" required>
             {% for categoria in categorias %}
                 <option value="{{ categoria.idcategoria }}">{{ categoria.tipocga }}</option>
             {% endfor %}
         </select>
+        
         <label for="nombrepvr">Proveedor:</label>
         <select id="nombrepvr" name="nombrepvr" required>
             {% for proveedor in proveedores %}

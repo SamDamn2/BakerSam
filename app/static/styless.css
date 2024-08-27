@@ -1,0 +1,139 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía más moderna */
+    margin: 0;
+    padding: 20px;
+    background-color: #f8f3ed; /* Color de fondo más suave */
+    color: #444; /* Color de texto principal */
+}
+
+h1 {
+    color: #3a3a3a;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em; /* Tamaño de texto más grande */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    background-color: #fff;
+    border-radius: 8px; /* Esquinas redondeadas */
+    overflow: hidden; /* Oculta el desbordamiento de las esquinas redondeadas */
+}
+
+table, th, td {
+    border: none; /* Eliminación de bordes */
+}
+
+th, td {
+    padding: 15px; /* Espaciado más amplio */
+    text-align: left;
+}
+
+th {
+    background-color: #d5b185; /* Color de encabezado más cálido */
+    color: white;
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f7f4; /* Color de fondo alternativo para las filas */
+}
+
+tr:hover {
+    background-color: #ece7e2; /* Color de fondo al pasar el ratón */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Esquinas redondeadas */
+    text-align: center;
+}
+
+button {
+    background-color: #c7a17a;
+    color: white;
+    border: none;
+    padding: 10px 15px; /* Espaciado más cómodo */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra en el botón */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+button:hover {
+    background-color: #b5936a;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más profunda al hacer hover */
+}
+
+a {
+    color: #c7a17a;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+    margin-right: 10px;
+    border: 2px solid #c7a17a; /* Borde más grueso */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+a:hover {
+    background-color: #c7a17a;
+    color: white;
+}
+
+form {
+    display: inline-block;
+    margin: 0;
+}
+
+a:last-of-type {
+    margin-right: 0;
+}
+
+@media screen and (max-width: 768px) {
+    table, th, td {
+        display: block;
+        width: 100%;
+    }
+
+    th {
+        background-color: transparent;
+        color: #3a3a3a;
+    }
+
+    tr {
+        margin-bottom: 15px;
+        display: block;
+        border: none;
+    }
+
+    td {
+        display: block;
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px);
+        padding-right: 10px;
+        text-align: left;
+        font-weight: bold;
+    }
+}

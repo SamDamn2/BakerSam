@@ -4,11 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styless.css') }}" />
     <title>Factura</title>
 </head>
 <body>
     <h1>Factura Generada</h1>
     <p>Total pagado: ${{ total }}</p>
     <p>Gracias por su compra.</p>
+    
+    <a href="{{ url_for('producto.index') }}">Ir a Productos</a>
 </body>
 </html>

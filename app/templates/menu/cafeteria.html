@@ -8,6 +8,7 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<title>BakerSams</title>
+		<link rel="icon" href="{{ url_for('static', filename='img/ico.ico') }}" type="image/x-icon">
 		<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
 	</head>
 	<body>
@@ -15,7 +16,7 @@
 			<div class="container-hero">
 				<div class="container hero">
 					<div class="customer-support">
-						<i class="fa-solid fa-headset"></i>
+						<img src="{{ url_for('static', filename='img/headp.svg') }}" alt="Auricular Icono">
 						<div class="content-customer-support">
 							<span class="text">Soporte al cliente</span>
 							<span class="number">321-409-8166</span>
@@ -28,10 +29,11 @@
 					</div>
 
 					<div class="container-user">
-						<i class="fa fa-user"></i>
+						<img src="{{ url_for('static', filename='img/user.svg') }}" alt="Usuario Icono">
+						<div class="divider"></div>
 						<a href="/ListarCarrito">
-							<i class="fa fa-basket-shopping"></i>
-							<span class="cart-count">0</span>
+							<img src="{{ url_for('static', filename='img/car.svg') }}" alt="Carrito Icono">
+							<span class="cart-count">{{t}}</span>
 						</a>
 					</div>
 					
@@ -51,160 +53,19 @@
 					<form class="search-form">
 						<input type="search" placeholder="Buscar..." />
 						<button class="btn-search">
-							<i class="fa-solid fa-magnifying-glass"></i>
+							<img src="{{ url_for('static', filename='img/lupa.svg') }}" alt="Lupa Icono">
 						</button>
 					</form>
 				</nav>
 			</div>
 		</header>
+
 		<main class="main-content">
-			<section class="container specials">
-				<h1 class="heading-1">Especiales</h1>
-
-				<div class="container-products">
-					<!-- Producto 1 -->
-					<div class="card-product">
-						<div class="container-img">
-							<img src="{{ url_for('static', filename='img/cafe-irish.jpg') }}" alt="Coca" />
-							<span class="discount">-13%</span>
-							<div class="button-group">
-								<span>
-									<i class="fa-regular fa-eye"></i>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-							</div>
-							<h3>Cafe Irish</h3>
-							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
-							</span>
-							<p class="price">$4.60 <span>$5.30</span></p>
-						</div>
-					</div>
-					<!-- Producto 2 -->
-					<div class="card-product">
-						<div class="container-img">
-							<img
-								src="{{ url_for('static', filename='img/cafe-ingles.jpg') }}"
-								alt="Cafe incafe-ingles.jpg"
-							/>
-							<span class="discount">-22%</span>
-							<div class="button-group">
-								<span>
-									<i class="fa-regular fa-eye"></i>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-							</div>
-							<h3>Cafe Inglés</h3>
-							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
-							</span>
-							<p class="price">$5.70 <span>$7.30</span></p>
-						</div>
-					</div>
-					<!--  -->
-					<div class="card-product">
-						<div class="container-img">
-							<img src="{{ url_for('static', filename='img/cafe-viena.jpg') }}" alt="Cafe Viena" />
-							<span class="discount">-30%</span>
-							<div class="button-group">
-								<span>
-									<i class="fa-regular fa-eye"></i>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-							</div>
-							<h3>Cafe Viena</h3>
-							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
-							</span>
-							<p class="price">$3.85 <span>$5.50</span></p>
-						</div>
-					</div>
-					<!--  -->
-					<div class="card-product">
-						<div class="container-img">
-							<img src="{{ url_for('static', filename='img/cafe-liqueurs.jpg') }}" alt="Cafe Liqueurs" />
-							<div class="button-group">
-								<span>
-									<i class="fa-regular fa-eye"></i>
-								</span>
-								<span>
-									<i class="fa-regular fa-heart"></i>
-								</span>
-								<span>
-									<i class="fa-solid fa-code-compare"></i>
-								</span>
-							</div>
-						</div>
-						<div class="content-card-product">
-							<div class="stars">
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-solid fa-star"></i>
-								<i class="fa-regular fa-star"></i>
-							</div>
-							<h3>Cafe Liqueurs</h3>
-							<span class="add-cart">
-								<i class="fa-solid fa-basket-shopping"></i>
-							</span>
-							<p class="price">$5.60</p>
-						</div>
-					</div>
-				</div>
-			</section>
-
+			<h1>Cafeteria</h1>
 			<section class="container top-products">
-				<h1 class="heading-1">Mejores Productos</h1>
-
-				<div class="container-options">
-					<span class="active">Destacados</span>
-				</div>
-
 				<div class="container-products">
 					<!-- Producto 1 -->
-					{% for producto in data %}
+					{% for producto in productos %}
 					<div class="card-product">
 						<div class="container-img">
 							{% if producto.imagenpdo %}
@@ -222,13 +83,13 @@
 							</div>
 							<h3>{{ producto.nombrepdo }}</h3>
 							<div class="can">
-								<form action="{{ url_for('carrito.agregar_al_carrito', id=producto.idproducto) }}" method="post" style="display:inline;">
+								<form action="{{ url_for('carrito.agregar_al_carrito', id=producto.idproducto, referer=request.url) }}" method="post" style="display:inline;">
 									<label for="cantidad-{{ producto.idproducto }}" style="display:block;">Cantidad:</label>
 									<input type="number" id="cantidad-{{ producto.idproducto }}" name="cantidad" value="1" min="1" style="width: 40px;">
 									<button type="submit" class="add-cart">
 										<img src="{{ url_for('static', filename='img/car.svg') }}" alt="Carrito icono" />
 									</button>
-								</form>
+								</form>								
 								<p class="price">{{ producto.preciopdo }}</p>
 							</div>
 						</div>
@@ -236,7 +97,6 @@
 					{% endfor %}
 				</div>
 			</section>
-		</main>
 
 		<footer class="footer">
 			<div class="container container-footer">
@@ -254,12 +114,12 @@
 						<div class="social-icons">
 							<a href="https://www.facebook.com/samuel.estradaavila?locale=es_LA" target="_blank">
 								<span class="facebook">
-									<i class="fa-brands fa-facebook-f"></i>
+									<img src="{{ url_for('static', filename='img/face.svg') }}" alt="Face Icono">
 								</span>
 							</a>
 							<a href="https://www.instagram.com/samuel_avila05/">
 								<span class="instagram">
-									<i class="fa-brands fa-instagram"></i>
+									<img src="{{ url_for('static', filename='img/insta.svg') }}" alt="Instagram Icono">
 								</span>
 							</a>							
 						</div>
@@ -311,10 +171,6 @@
 				</div>
 			</div>
 		</footer>
-
-		<script
-			src="https://kit.fontawesome.com/81581fb069.js"
-			crossorigin="anonymous"
-		></script>
+		</main>
 	</body>
 </html>

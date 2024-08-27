@@ -18,14 +18,6 @@ def index():
     dataP = Proveedor.query.all()
     return render_template('productos/index.html', data=data, dataC=dataC, dataP=dataP, t=carrito_compras.tamañoD())
 
-@bp.route('/cafeteria')
-@login_required
-def cafeteria():
-    data = Producto.query.all()
-    dataC = Categoria.query.all()
-    dataP = Proveedor.query.all()
-    return render_template('menu/cafeteria.html', data=data, dataC=dataC, dataP=dataP, t=carrito_compras.tamañoD())
-
 @bp.route('/vista')
 @login_required
 def vista():
@@ -46,21 +38,28 @@ def add():
         stockpdo = request.form['stockpdo']
 
         imagenpdo = request.files['imagenpdo']
-        
 
         if imagenpdo:
             filename = secure_filename(imagenpdo.filename)
             imagen_path = os.path.join('static', 'img', filename)
             imagenpdo.save(os.path.join(os.path.dirname(__file__), '..', imagen_path))
             ruta_imagen = imagen_path
-
         else:
-            ruta_imagen=None
-        
-        newProducto = Producto(nombrepdo=nombrepdo, idcategoria=idcategoria, idproveedor=idproveedor, descripcionpdo=descripcionpdo, preciopdo=preciopdo, stockpdo=stockpdo,  imagenpdo=imagenpdo.filename)
+            ruta_imagen = None
+
+        newProducto = Producto(nombrepdo=nombrepdo, idcategoria=idcategoria, idproveedor=idproveedor, descripcionpdo=descripcionpdo, preciopdo=preciopdo, stockpdo=stockpdo, imagenpdo=imagenpdo.filename)
         db.session.add(newProducto)
         db.session.commit()
-        
+
+        categoria = Categoria.query.get(idcategoria)
+        if categoria:
+            if categoria.tipocga == 'Cafetería':
+                return redirect(url_for('menu.cafeteria'))
+            elif categoria.tipocga == 'Restaurante':
+                return redirect(url_for('menu.restaurante'))
+            elif categoria.tipocga == 'Panadería':
+                return redirect(url_for('menu.panaderia'))
+
         return redirect(url_for('producto.index'))
     categorias = Categoria.query.all()
     proveedores = Proveedor.query.all()
